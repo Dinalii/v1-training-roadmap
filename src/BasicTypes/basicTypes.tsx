@@ -11,7 +11,7 @@ let myStringArray: string[] = ["apple", "banana", "orange"];
 let myTuple: [number, string] = [1, "apple"];
 
 // 4. Enum
-enum Color {
+export enum Color {
   Red,
   Green,
   Blue,
@@ -25,7 +25,7 @@ myAny = "Now it's a string";
 myAny = true;
 
 // 6. Void
-function sayHello(): void {
+export function sayHello(): void {
   console.log("Hello, void!");
 }
 
