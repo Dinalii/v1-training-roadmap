@@ -41,13 +41,14 @@ export class Rectangle implements Shape {
   }
 
   getDetails(): string {
-    return `Rectangle - Color: ${Color[this.color]}, Width: ${this.width}, Height: ${this.height}, Area: ${this.area()}`;
+    return `Rectangle - Color: ${Color[this.color]}, Width: ${
+      this.width
+    }, Height: ${this.height}, Area: ${this.area()}`;
   }
 }
 
 const myRectangle = new Rectangle(5, 10, Color.Blue);
 console.log(myRectangle.getDetails());
-
 
 // 5. Any
 let myAny: any = 42;
