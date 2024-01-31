@@ -19,6 +19,36 @@ export enum Color {
 
 let myColor: Color = Color.Green;
 
+// 8. Interfaces and Classes
+interface Shape {
+  color: Color;
+  area(): number;
+}
+
+export class Rectangle implements Shape {
+  private width: number;
+  private height: number;
+  public readonly color: Color; // Use the same or less restrictive access modifier
+
+  constructor(width: number, height: number, color: Color) {
+    this.width = width;
+    this.height = height;
+    this.color = color;
+  }
+
+  area(): number {
+    return this.width * this.height;
+  }
+
+  getDetails(): string {
+    return `Rectangle - Color: ${Color[this.color]}, Width: ${this.width}, Height: ${this.height}, Area: ${this.area()}`;
+  }
+}
+
+const myRectangle = new Rectangle(5, 10, Color.Blue);
+console.log(myRectangle.getDetails());
+
+
 // 5. Any
 let myAny: any = 42;
 myAny = "Now it's a string";
