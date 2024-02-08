@@ -50,6 +50,29 @@ export class Rectangle implements Shape {
 const myRectangle = new Rectangle(5, 10, Color.Blue);
 console.log(myRectangle.getDetails());
 
+// Function Types
+type AreaFunction = (shape: Shape) => number;
+
+function calculateArea(shape: Shape, areaFn: AreaFunction): number {
+  return areaFn(shape);
+}
+
+const rectangleArea: AreaFunction = (shape) => shape.area();
+console.log("Area of Rectangle:", calculateArea(myRectangle, rectangleArea));
+
+// Generic Types and Interfaces
+interface Pair<T, U> {
+  first: T;
+  second: U;
+}
+
+function printPair<T, U>(pair: Pair<T, U>): void {
+  console.log(`First: ${pair.first}, Second: ${pair.second}`);
+}
+
+const myPair: Pair<number, string> = { first: 42, second: "Hello" };
+printPair(myPair);
+
 // 5. Any
 let myAny: any = 42;
 myAny = "Now it's a string";
