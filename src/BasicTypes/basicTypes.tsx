@@ -26,8 +26,8 @@ interface Shape {
 }
 
 export class Rectangle implements Shape {
-  private width: number;
-  private height: number;
+  public readonly width: number;
+  public readonly height: number;
   public readonly color: Color; // Use the same or less restrictive access modifier
 
   constructor(width: number, height: number, color: Color) {

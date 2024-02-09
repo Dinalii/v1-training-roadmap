@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/vite.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vite + React + TS</title>
+  <title>Rectangle Information</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="root"></div>
   <div class="container">
     <h1>Rectangle Information</h1>
-    <div id="rectangle-info" class="rectangle-info">
-      <!-- Rectangle information will be dynamically populated here -->
+    <div class="rectangle-info">
+      <p><strong>Color:</strong> Blue</p>
+      <p><strong>Width:</strong> 5</p>
+      <p><strong>Height:</strong> 10</p>
+      <p><strong>Area:</strong> 50</p>
     </div>
     <form id="rectangle-form">
       <label for="width-input">Width:</label>
@@ -21,6 +23,7 @@
       <button type="submit">Create Rectangle</button>
     </form>
   </div>
-  <script type="module" src="/src/main.tsx"></script>
+
+  <script type="module" src="types.js"></script>
 </body>
 </html>
