@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Color, Rectangle } from "./BasicTypes/basicTypes";
+import "./app.css";
 
 const App: React.FC = () => {
   const [width, setWidth] = useState<number>(0);
