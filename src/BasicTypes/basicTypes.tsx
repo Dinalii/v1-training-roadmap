@@ -4,18 +4,30 @@ let myNumber: number = 42;
 let myString: string = "Hello, TypeScript!";
 
 // 2. Arrays
-let myArray: number[] = [1, 2, 3, 4];
-let myStringArray: string[] = ["apple", "banana", "orange"];
+let myArray: Array<number> = [1, 2, 3, 4]; // Using Array generic type
+let myStringArray: Array<string> = ["apple", "banana", "orange"];
 
 // 3. Tuples
 let myTuple: [number, string] = [1, "apple"];
 
-// 4. Enum
 export enum Color {
   Red,
   Green,
   Blue,
 }
+
+// Example usage
+const colorIndex: { [key in Color]: string } = {
+  [Color.Red]: "Red",
+  [Color.Green]: "Green",
+  [Color.Blue]: "Blue",
+};
+
+// Now you can access the color names using the enum values
+console.log(colorIndex[Color.Red]); // Output: "Red"
+console.log(colorIndex[Color.Green]); // Output: "Green"
+console.log(colorIndex[Color.Blue]); // Output: "Blue"
+
 
 let myColor: Color = Color.Green;
 
@@ -26,22 +38,18 @@ interface Shape {
 }
 
 export class Rectangle implements Shape {
-  public readonly width: number;
-  public readonly height: number;
-  public readonly color: Color; // Use the same or less restrictive access modifier
-
-  constructor(width: number, height: number, color: Color) {
-    this.width = width;
-    this.height = height;
-    this.color = color;
-  }
+  constructor(
+    public readonly width: number,
+    public readonly height: number,
+    public readonly color: Color // Using public accessor for class properties
+  ) {}
 
   area(): number {
     return this.width * this.height;
   }
 
   getDetails(): string {
-    return `Rectangle - Color: ${Color[this.color]}, Width: ${
+    return `Rectangle - Color: ${this.color}, Width: ${
       this.width
     }, Height: ${this.height}, Area: ${this.area()}`;
   }
@@ -79,7 +87,7 @@ myAny = "Now it's a string";
 myAny = true;
 
 // 6. Void
-export function sayHello(): void {
+function sayHello(): void {
   console.log("Hello, void!");
 }
 
