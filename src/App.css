@@ -1,4 +1,4 @@
-/* Define variables */
+/* app.css */
 :root {
   --primary-color: #007bff;
   --secondary-color: #0056b3;
@@ -7,7 +7,6 @@
   --container-width: 400px;
 }
 
-/* Base styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -33,7 +32,7 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
   color: var(--primary-color);
-  transition: color 0.3s ease; /* Add transition for heading color */
+  transition: color 0.3s ease;
 }
 
 form {
@@ -44,7 +43,7 @@ form {
 label {
   margin-bottom: 10px;
   font-weight: bold;
-  transition: color 0.3s ease; /* Add transition for label color */
+  transition: color 0.3s ease;
 }
 
 input {
@@ -62,17 +61,53 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for button background color and transform */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background-color: var(--secondary-color);
-  transform: scale(1.05); /* Add hover animation for button */
+  transform: scale(1.05);
 }
 
-/* Media queries for responsive design */
 @media screen and (max-width: 600px) {
   .container {
+    width: 90%;
+  }
+}
+
+.rectangle-info {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  transition: box-shadow 0.3s ease;
+}
+
+.rectangle-info p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.rectangle-info p strong {
+  font-weight: bold;
+}
+
+.area-info {
+  margin-top: 20px;
+}
+
+.area-info strong {
+  color: #007bff;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 600px) {
+  .rectangle-info {
     width: 90%;
   }
 }

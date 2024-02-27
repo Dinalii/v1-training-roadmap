@@ -16,18 +16,15 @@ export enum Color {
   Blue,
 }
 
-// Example usage
 const colorIndex: { [key in Color]: string } = {
   [Color.Red]: "Red",
   [Color.Green]: "Green",
   [Color.Blue]: "Blue",
 };
 
-// Now you can access the color names using the enum values
 console.log(colorIndex[Color.Red]); // Output: "Red"
 console.log(colorIndex[Color.Green]); // Output: "Green"
 console.log(colorIndex[Color.Blue]); // Output: "Blue"
-
 
 let myColor: Color = Color.Green;
 
@@ -49,9 +46,9 @@ export class Rectangle implements Shape {
   }
 
   getDetails(): string {
-    return `Rectangle - Color: ${this.color}, Width: ${
-      this.width
-    }, Height: ${this.height}, Area: ${this.area()}`;
+    return `Rectangle - Color: ${this.color}, Width: ${this.width}, Height: ${
+      this.height
+    }, Area: ${this.area()}`;
   }
 }
 
