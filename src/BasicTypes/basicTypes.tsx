@@ -22,9 +22,11 @@ const colorIndex: { [key in Color]: string } = {
   [Color.Blue]: "Blue",
 };
 
-console.log(colorIndex[Color.Red]); // Output: "Red"
-console.log(colorIndex[Color.Green]); // Output: "Green"
-console.log(colorIndex[Color.Blue]); // Output: "Blue"
+console.log(colorIndex[Color.Red]);
+
+console.log(colorIndex[Color.Green]);
+
+console.log(colorIndex[Color.Blue]);
 
 let myColor: Color = Color.Green;
 
@@ -38,7 +40,7 @@ export class Rectangle implements Shape {
   constructor(
     public readonly width: number,
     public readonly height: number,
-    public readonly color: Color // Using public accessor for class properties
+    public readonly color: Color
   ) {}
 
   area(): number {

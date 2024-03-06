@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  FC,
+} from "react";
 import { Color } from "./basicTypes";
 
 interface RectangleContextType {
@@ -34,6 +40,7 @@ export const RectangleProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
+// useRectangle hook
 export const useRectangle = () => {
   const context = useContext(RectangleContext);
   if (!context) {

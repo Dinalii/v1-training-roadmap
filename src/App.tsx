@@ -4,7 +4,7 @@ import { RectangleProvider } from "./BasicTypes/rectangleContext";
 import useForm from "./BasicTypes/useForm";
 
 const App = () => {
-  const { values, errors, handleChange, setErrors } = useForm({
+  const { values, errors, handleChange } = useForm({
     width: 0,
     height: 0,
   });
