@@ -1,57 +1,107 @@
-// Importing useState hook from React
-import { useState } from "react";
-
-// Importing RectangleDetails component and Color enum from respective files
+import React from "react";
 import RectangleDetails from "./BasicTypes/rectangleDetails";
-import { Color } from "./BasicTypes/basicTypes";
+import { RectangleProvider } from "./BasicTypes/rectangleContext";
+import useForm from "./BasicTypes/useForm";
 
-// Functional component named App
-const App: React.FC = () => {
-  // State variables for width, height, and color
-  const [width, setWidth] = useState<number>(0);
-  const [height, setHeight] = useState<number>(0);
-  const [color, setColor] = useState<Color>(Color.Blue); // Initial color set to Blue
+const App = () => {
+  const { values, errors, handleChange, setErrors } = useForm({
+    width: 0,
+    height: 0,
+  });
 
-  // Function to handle form submission
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Checking if width and height are greater than 0
-    if (width > 0 && height > 0) {
-      setColor(Color.Blue);
-    }
+    console.log("Submitted values:", values);
   };
 
-  // JSX structure representing the component
   return (
-    <div className="container">
-      <h1>Rectangle Information</h1>
-      {/* Rendering RectangleDetails component with width, height, and color props */}
-      <RectangleDetails width={width} height={height} color={color} />
-
-      <form id="rectangle-form" onSubmit={handleSubmit}>
-        <label htmlFor="width-input">Width:</label>
-        <input
-          type="number"
-          id="width-input"
-          name="width"
-          value={width}
-          onChange={(e) => setWidth(parseInt(e.target.value))} // Updating width state onChange
-          required
-        />
-
-        <label htmlFor="height-input">Height:</label>
-        <input
-          type="number"
-          id="height-input"
-          name="height"
-          value={height}
-          onChange={(e) => setHeight(parseInt(e.target.value))} // Updating height state onChange
-          required
-        />
-
-        <button type="submit">Create Rectangle</button>
-      </form>
-    </div>
+    <RectangleProvider>
+      <div className="container">
+        <h1
+          style={{ color: "#2c3e50", marginBottom: "30px", fontSize: "28px" }}
+        >
+          Rectangle Information
+        </h1>
+        <RectangleDetails />
+        <form id="rectangle-form" onSubmit={handleSubmit}>
+          <div style={{ marginBottom: "20px" }}>
+            <label
+              htmlFor="width-input"
+              style={{ color: "#2c3e50", marginRight: "10px" }}
+            >
+              Width:
+            </label>
+            <input
+              type="number"
+              id="width-input"
+              name="width"
+              value={values.width}
+              onChange={handleChange}
+              style={{
+                padding: "8px",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+              }}
+              required
+            />
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <label
+              htmlFor="height-input"
+              style={{ color: "#2c3e50", marginRight: "10px" }}
+            >
+              Height:
+            </label>
+            <input
+              type="number"
+              id="height-input"
+              name="height"
+              value={values.height}
+              onChange={handleChange}
+              style={{
+                padding: "8px",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+              }}
+              required
+            />
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <label
+              htmlFor="area-input"
+              style={{ color: "#2c3e50", marginRight: "10px" }}
+            >
+              Area:
+            </label>
+            <input
+              type="text"
+              id="area-input"
+              name="area"
+              value={values.width * values.height}
+              disabled
+              style={{
+                padding: "8px",
+                borderRadius: "5px",
+                border: "1px solid #ccc",
+              }}
+            />
+          </div>
+          <button
+            type="submit"
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#2ecc71",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            Create Rectangle
+          </button>
+        </form>
+      </div>
+    </RectangleProvider>
   );
 };
 

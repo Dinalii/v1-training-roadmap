@@ -1,23 +1,19 @@
-import React from "react";
-import { Color } from "./basicTypes";
+import React, { useContext } from "react";
+import { RectangleContext } from "./rectangleContext";
 
-interface RectangleDetailsProps {
-  width: number;
-  height: number;
-  color: Color;
-}
+const RectangleDetails: React.FC = () => {
+  const { width, height, color } = useContext(RectangleContext) || {};
 
-const RectangleDetails: React.FC<RectangleDetailsProps> = ({
-  width,
-  height,
-  color,
-}) => {
+  if (!width || !height || !color) {
+    return null;
+  }
+
   const area = width * height;
 
   return (
     <div className="rectangle-info">
       <p>
-        <strong>Color:</strong> {Color[color]}
+        <strong>Color:</strong> {color}
       </p>
       <p>
         <strong>Width:</strong> {width}

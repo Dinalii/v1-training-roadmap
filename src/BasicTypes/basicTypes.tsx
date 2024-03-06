@@ -11,9 +11,9 @@ let myStringArray: Array<string> = ["apple", "banana", "orange"];
 let myTuple: [number, string] = [1, "apple"];
 
 export enum Color {
-  Red,
-  Green,
-  Blue,
+  Red = "Red",
+  Green = "Green",
+  Blue = "Blue",
 }
 
 const colorIndex: { [key in Color]: string } = {
